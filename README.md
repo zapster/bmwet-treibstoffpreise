@@ -52,9 +52,9 @@ sensor's `date` attribute. A daily polling interval is sufficient.
 ## Status
 
 The local scraper, history merge, validation, and offline tests are implemented.
-The GitHub Pages homepage and deployment workflow are implemented. Automated
-fetching and scheduling are not implemented yet. Historical data from before
-2026 is planned but not implemented yet.
+The GitHub Pages homepage, deployment workflow, and daily data update are
+implemented. Historical data from before 2026 is planned but not implemented
+yet.
 
 ## License
 

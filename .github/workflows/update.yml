@@ -4,10 +4,13 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "17 7 * * *"
+      timezone: "Europe/Vienna"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -26,6 +29,37 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m unittest discover --start-directory tests --verbose
+
+      - name: Fetch and merge BMWET data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python scripts/scrape.py
+
+      - name: Commit updated data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- data/prices.json public/api/v1; then
+            echo "No published data changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/prices.json public/api/v1
+          git commit -m "Update BMWET prices"
+          git push
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
