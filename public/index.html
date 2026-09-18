@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Machine-readable Austrian BMWET fuel and heating-oil prices.">
+  <title>BMWET Fuel Prices</title>
+  <style>
+    body {
+      max-width: 720px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      color: #1f2933;
+      font: 1rem/1.6 system-ui, sans-serif;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #d8dcd9;
+    }
+
+    h1 { margin: 0; font-size: 2rem; line-height: 1.2; }
+    h2 { margin: 2rem 0 .5rem; font-size: 1.2rem; }
+    p { margin: 0 0 1rem; }
+    .muted { color: #66737d; }
+    a { color: #075985; }
+
+    .github-badge {
+      flex: 0 0 auto;
+      padding: .3rem .6rem;
+      border: 1px solid #b9c0c5;
+      border-radius: .3rem;
+      color: #1f2933;
+      font-size: .85rem;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #d8dcd9;
+      color: #66737d;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 480px) {
+      body { margin-top: 2.5rem; }
+      header { display: block; }
+      .github-badge { display: inline-block; margin-top: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="github-badge" href="https://github.com/zapster/bmwet-treibstoffpreise">View on GitHub</a>
+      <h1>BMWET Fuel Prices</h1>
+      <p class="muted">Machine-readable fuel and heating-oil prices published by the Austrian Federal Ministry for Economic Affairs, Energy and Tourism.</p>
+    </header>
+
+    <main>
+      <h2>Data</h2>
+      <ul>
+        <li><a href="api/v1/latest.json">Latest prices (JSON)</a></li>
+        <li><a href="api/v1/prices.json">Prices and history (JSON)</a></li>
+        <li><a href="api/v1/prices.csv">Prices and history (CSV)</a></li>
+      </ul>
+
+      <h2>Source</h2>
+      <p><a href="https://www.bmwet.gv.at/Themen/Energie/kosten.html">BMWET current energy prices</a></p>
+      <p class="muted">This project provides a machine-readable processing of publicly published BMWET data. It is not an official BMWET API.</p>
+    </main>
+
+    <footer>Code licensed under the MIT License.</footer>
+  </div>
+</body>
+</html>
