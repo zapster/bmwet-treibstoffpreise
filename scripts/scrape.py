@@ -162,6 +162,56 @@ def parse_html(html: str, *, today: date | None = None) -> ParsedPrices:
     return ParsedPrices(records[0], tuple(records))
 
 
+def _stored_row(value: object) -> PriceRow:
+    if not isinstance(value, dict):
+        raise ScrapeError("stored history row is not an object")
+
+    try:
+        record_date = date.fromisoformat(value["date"])
+        stored_prices = value["prices"]
+        prices = {
+            key: parse_price(str(stored_prices[key]))
+            for key in PRICE_KEYS
+        }
+    except (KeyError, TypeError, ValueError) as error:
+        raise ScrapeError("invalid stored history row") from error
+    return PriceRow(record_date, prices)
+
+
+def load_existing_document(path: Path) -> dict | None:
+    """Load the canonical document, if it exists."""
+
+    if not path.exists():
+        return None
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise ScrapeError(f"cannot read stored data: {path}") from error
+    if not isinstance(document, dict) or not isinstance(document.get("history"), list):
+        raise ScrapeError("stored data has no valid history")
+    return document
+
+
+def load_history(document: dict | None) -> tuple[PriceRow, ...]:
+    """Convert stored history into validated rows."""
+
+    if document is None:
+        return ()
+    rows = tuple(_stored_row(value) for value in document["history"])
+    if len({row.date for row in rows}) != len(rows):
+        raise ScrapeError("stored history contains duplicate dates")
+    return tuple(sorted(rows, key=lambda row: row.date, reverse=True))
+
+
+def merge_history(existing: tuple[PriceRow, ...], scraped: ParsedPrices) -> ParsedPrices:
+    """Merge scraped rows into history, replacing corrected dates."""
+
+    records = {row.date: row for row in existing}
+    records.update({row.date: row for row in scraped.history})
+    history = tuple(sorted(records.values(), key=lambda row: row.date, reverse=True))
+    return ParsedPrices(scraped.current, history)
+
+
 def fetch_html(url: str = SOURCE_URL) -> str:
     """Fetch the source page with a bounded request."""
 
@@ -182,6 +232,10 @@ def _row_json(row: PriceRow) -> dict:
         "date": row.date.isoformat(),
         "prices": {key: _price_value(row.prices[key]) for key in PRICE_KEYS},
     }
+
+
+def _without_retrieved_at(document: dict) -> dict:
+    return {key: value for key, value in document.items() if key != "retrieved_at"}
 
 
 def build_documents(data: ParsedPrices, retrieved_at: str) -> tuple[dict, dict]:
@@ -207,16 +261,20 @@ def _format_price(price: Decimal) -> str:
     return text or "0"
 
 
+def _write_json(path: Path, document: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(document, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
 def write_outputs(data: ParsedPrices, output_dir: Path, retrieved_at: str) -> None:
     """Write versioned JSON and CSV output files."""
 
     latest, prices = build_documents(data, retrieved_at)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    for name, document in (("latest.json", latest), ("prices.json", prices)):
-        (output_dir / name).write_text(
-            json.dumps(document, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
+    _write_json(output_dir / "latest.json", latest)
+    _write_json(output_dir / "prices.json", prices)
 
     with (output_dir / "prices.csv").open("w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file, lineterminator="\n")
@@ -230,13 +288,25 @@ def write_outputs(data: ParsedPrices, output_dir: Path, retrieved_at: str) -> No
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path("public/api/v1"))
+    parser.add_argument("--data", type=Path, default=Path("data/prices.json"))
     parser.add_argument("--url", default=SOURCE_URL)
     args = parser.parse_args()
 
     try:
+        existing_document = load_existing_document(args.data)
+        existing_history = load_history(existing_document)
+        data = parse_html(
+            fetch_html(args.url),
+            today=datetime.now(ZoneInfo("Europe/Vienna")).date(),
+        )
+        data = merge_history(existing_history, data)
         now = datetime.now(ZoneInfo("Europe/Vienna"))
-        data = parse_html(fetch_html(args.url), today=now.date())
         retrieved_at = now.isoformat(timespec="seconds")
+        if existing_document is not None:
+            candidate = build_documents(data, retrieved_at)[1]
+            if _without_retrieved_at(existing_document) == _without_retrieved_at(candidate):
+                retrieved_at = existing_document.get("retrieved_at", retrieved_at)
+        _write_json(args.data, build_documents(data, retrieved_at)[1])
         write_outputs(data, args.output, retrieved_at)
     except (requests.RequestException, ScrapeError) as error:
         print(f"Error: {error}", file=sys.stderr)
