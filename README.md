@@ -16,6 +16,15 @@ versioned JSON and CSV data. It is not an official BMWET API.
 The published values are weighted averages including taxes and charges. They
 should not be interpreted as individual supplier prices.
 
+## Published Data
+
+The GitHub Pages site and versioned data endpoints are available here:
+
+- [Project website](https://zapster.github.io/bmwet-treibstoffpreise/)
+- [Latest prices (JSON)](https://zapster.github.io/bmwet-treibstoffpreise/api/v1/latest.json)
+- [Prices and history (JSON)](https://zapster.github.io/bmwet-treibstoffpreise/api/v1/prices.json)
+- [Prices and history (CSV)](https://zapster.github.io/bmwet-treibstoffpreise/api/v1/prices.csv)
+
 ## Status
 
 The local scraper, history merge, validation, and offline tests are implemented.
