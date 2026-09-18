@@ -16,6 +16,12 @@ versioned JSON and CSV data. It is not an official BMWET API.
 The published values are weighted averages including taxes and charges. They
 should not be interpreted as individual supplier prices.
 
+## Status
+
+Initial repository setup is complete. The scraper, validation, automated tests,
+GitHub Actions workflow, and GitHub Pages endpoints are not implemented yet.
+Historical data from before 2026 is planned but not implemented yet.
+
 ## License
 
 The repository code is licensed under the MIT License. The generated data is
