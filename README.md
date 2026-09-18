@@ -25,6 +25,30 @@ The GitHub Pages site and versioned data endpoints are available here:
 - [Prices and history (JSON)](https://zapster.github.io/bmwet-treibstoffpreise/api/v1/prices.json)
 - [Prices and history (CSV)](https://zapster.github.io/bmwet-treibstoffpreise/api/v1/prices.csv)
 
+## Home Assistant
+
+Home Assistant can read the latest data with its REST integration. Add this to
+`configuration.yaml`:
+
+```yaml
+rest:
+  - resource: https://zapster.github.io/bmwet-treibstoffpreise/api/v1/latest.json
+    scan_interval: 86400
+    sensor:
+      - name: Austrian Heating Oil Reference Price
+        unique_id: austrian_heating_oil_reference_price
+        value_template: "{{ value_json.current.prices.heating_oil_bulk }}"
+        unit_of_measurement: "EUR/L"
+        state_class: measurement
+        json_attributes_path: "$.current"
+        json_attributes:
+          - date
+```
+
+The available price keys are `diesel`, `eurosuper`, `super_plus`,
+`heating_oil_bulk`, and `heating_oil_station`. The data date is exposed as the
+sensor's `date` attribute. A daily polling interval is sufficient.
+
 ## Status
 
 The local scraper, history merge, validation, and offline tests are implemented.
