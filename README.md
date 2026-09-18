@@ -18,8 +18,8 @@ should not be interpreted as individual supplier prices.
 
 ## Status
 
-Initial repository setup is complete. The scraper, validation, automated tests,
-GitHub Actions workflow, and GitHub Pages endpoints are not implemented yet.
+The local scraper, validation, and offline tests are implemented. The GitHub
+Actions workflow and GitHub Pages deployment are not implemented yet.
 Historical data from before 2026 is planned but not implemented yet.
 
 ## License

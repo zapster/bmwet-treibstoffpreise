@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "BMWET",
+    "url": "https://www.bmwet.gv.at/Themen/Energie/kosten.html"
+  },
+  "retrieved_at": "2026-09-18T10:57:49+02:00",
+  "current": {
+    "date": "2026-09-14",
+    "prices": {
+      "diesel": 2.197,
+      "eurosuper": 1.894,
+      "super_plus": 2.132,
+      "heating_oil_bulk": 1.804,
+      "heating_oil_station": 1.854
+    }
+  },
+  "history": [
+    {
+      "date": "2026-09-14",
+      "prices": {
+        "diesel": 2.197,
+        "eurosuper": 1.894,
+        "super_plus": 2.132,
+        "heating_oil_bulk": 1.804,
+        "heating_oil_station": 1.854
+      }
+    },
+    {
+      "date": "2026-09-07",
+      "prices": {
+        "diesel": 2.126,
+        "eurosuper": 1.912,
+        "super_plus": 2.149,
+        "heating_oil_bulk": 1.711,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-08-31",
+      "prices": {
+        "diesel": 1.993,
+        "eurosuper": 1.784,
+        "super_plus": 2.047,
+        "heating_oil_bulk": 1.607,
+        "heating_oil_station": 1.794
+      }
+    },
+    {
+      "date": "2026-08-24",
+      "prices": {
+        "diesel": 2.05,
+        "eurosuper": 1.784,
+        "super_plus": 2.041,
+        "heating_oil_bulk": 1.634,
+        "heating_oil_station": 1.794
+      }
+    },
+    {
+      "date": "2026-08-17",
+      "prices": {
+        "diesel": 2.043,
+        "eurosuper": 1.795,
+        "super_plus": 2.031,
+        "heating_oil_bulk": 1.601,
+        "heating_oil_station": 1.794
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "prices": {
+        "diesel": 1.965,
+        "eurosuper": 1.721,
+        "super_plus": 1.96,
+        "heating_oil_bulk": 1.543,
+        "heating_oil_station": 1.794
+      }
+    },
+    {
+      "date": "2026-08-03",
+      "prices": {
+        "diesel": 2.05,
+        "eurosuper": 1.838,
+        "super_plus": 2.089,
+        "heating_oil_bulk": 1.616,
+        "heating_oil_station": 1.794
+      }
+    },
+    {
+      "date": "2026-07-27",
+      "prices": {
+        "diesel": 2.051,
+        "eurosuper": 1.874,
+        "super_plus": 2.114,
+        "heating_oil_bulk": 1.594,
+        "heating_oil_station": 1.794
+      }
+    },
+    {
+      "date": "2026-07-20",
+      "prices": {
+        "diesel": 1.931,
+        "eurosuper": 1.833,
+        "super_plus": 2.074,
+        "heating_oil_bulk": 1.538,
+        "heating_oil_station": 1.674
+      }
+    },
+    {
+      "date": "2026-07-13",
+      "prices": {
+        "diesel": 1.84,
+        "eurosuper": 1.762,
+        "super_plus": 2,
+        "heating_oil_bulk": 1.411,
+        "heating_oil_station": 1.674
+      }
+    },
+    {
+      "date": "2026-07-06",
+      "prices": {
+        "diesel": 1.73,
+        "eurosuper": 1.686,
+        "super_plus": 1.921,
+        "heating_oil_bulk": 1.307,
+        "heating_oil_station": 1.624
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "prices": {
+        "diesel": 1.711,
+        "eurosuper": 1.649,
+        "super_plus": 1.889,
+        "heating_oil_bulk": 1.271,
+        "heating_oil_station": 1.674
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "prices": {
+        "diesel": 1.724,
+        "eurosuper": 1.65,
+        "super_plus": 1.886,
+        "heating_oil_bulk": 1.315,
+        "heating_oil_station": 1.704
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "prices": {
+        "diesel": 1.82,
+        "eurosuper": 1.726,
+        "super_plus": 1.962,
+        "heating_oil_bulk": 1.39,
+        "heating_oil_station": 1.774
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "prices": {
+        "diesel": 1.831,
+        "eurosuper": 1.726,
+        "super_plus": 1.961,
+        "heating_oil_bulk": 1.449,
+        "heating_oil_station": 1.774
+      }
+    },
+    {
+      "date": "2026-06-01",
+      "prices": {
+        "diesel": 1.83,
+        "eurosuper": 1.735,
+        "super_plus": 1.998,
+        "heating_oil_bulk": 1.442,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-05-25",
+      "prices": {
+        "diesel": 1.906,
+        "eurosuper": 1.809,
+        "super_plus": 2.068,
+        "heating_oil_bulk": 1.511,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-05-18",
+      "prices": {
+        "diesel": 1.914,
+        "eurosuper": 1.813,
+        "super_plus": 2.083,
+        "heating_oil_bulk": 1.543,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "prices": {
+        "diesel": 1.913,
+        "eurosuper": 1.796,
+        "super_plus": 2.078,
+        "heating_oil_bulk": 1.561,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-05-04",
+      "prices": {
+        "diesel": 1.999,
+        "eurosuper": 1.793,
+        "super_plus": 2.081,
+        "heating_oil_bulk": 1.654,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-04-27",
+      "prices": {
+        "diesel": 1.91,
+        "eurosuper": 1.712,
+        "super_plus": 1.994,
+        "heating_oil_bulk": 1.632,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "prices": {
+        "diesel": 1.948,
+        "eurosuper": 1.691,
+        "super_plus": 1.979,
+        "heating_oil_bulk": 1.669,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "prices": {
+        "diesel": 2.075,
+        "eurosuper": 1.718,
+        "super_plus": 1.994,
+        "heating_oil_bulk": 1.765,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-04-06",
+      "prices": {
+        "diesel": 2.228,
+        "eurosuper": 1.787,
+        "super_plus": 2.039,
+        "heating_oil_bulk": 1.836,
+        "heating_oil_station": 1.824
+      }
+    },
+    {
+      "date": "2026-03-30",
+      "prices": {
+        "diesel": 2.204,
+        "eurosuper": 1.879,
+        "super_plus": 2.113,
+        "heating_oil_bulk": 1.749,
+        "heating_oil_station": 1.849
+      }
+    },
+    {
+      "date": "2026-03-23",
+      "prices": {
+        "diesel": 2.109,
+        "eurosuper": 1.841,
+        "super_plus": 2.08,
+        "heating_oil_bulk": 1.738,
+        "heating_oil_station": 1.799
+      }
+    },
+    {
+      "date": "2026-03-16",
+      "prices": {
+        "diesel": 1.954,
+        "eurosuper": 1.743,
+        "super_plus": 1.979,
+        "heating_oil_bulk": 1.618,
+        "heating_oil_station": 1.734
+      }
+    },
+    {
+      "date": "2026-03-09",
+      "prices": {
+        "diesel": 1.898,
+        "eurosuper": 1.708,
+        "super_plus": 1.96,
+        "heating_oil_bulk": 1.625,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-03-02",
+      "prices": {
+        "diesel": 1.564,
+        "eurosuper": 1.515,
+        "super_plus": 1.759,
+        "heating_oil_bulk": 1.204,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "prices": {
+        "diesel": 1.546,
+        "eurosuper": 1.509,
+        "super_plus": 1.751,
+        "heating_oil_bulk": 1.099,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "prices": {
+        "diesel": 1.518,
+        "eurosuper": 1.478,
+        "super_plus": 1.723,
+        "heating_oil_bulk": 1.069,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-02-09",
+      "prices": {
+        "diesel": 1.529,
+        "eurosuper": 1.485,
+        "super_plus": 1.73,
+        "heating_oil_bulk": 1.078,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-02-02",
+      "prices": {
+        "diesel": 1.52,
+        "eurosuper": 1.482,
+        "super_plus": 1.729,
+        "heating_oil_bulk": 1.086,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-01-26",
+      "prices": {
+        "diesel": 1.509,
+        "eurosuper": 1.48,
+        "super_plus": 1.725,
+        "heating_oil_bulk": 1.06,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-01-19",
+      "prices": {
+        "diesel": 1.487,
+        "eurosuper": 1.455,
+        "super_plus": 1.699,
+        "heating_oil_bulk": 1.053,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-01-12",
+      "prices": {
+        "diesel": 1.477,
+        "eurosuper": 1.453,
+        "super_plus": 1.699,
+        "heating_oil_bulk": 1.049,
+        "heating_oil_station": 1.389
+      }
+    },
+    {
+      "date": "2026-01-05",
+      "prices": {
+        "diesel": 1.495,
+        "eurosuper": 1.47,
+        "super_plus": 1.719,
+        "heating_oil_bulk": 1.054,
+        "heating_oil_station": 1.389
+      }
+    }
+  ]
+}
