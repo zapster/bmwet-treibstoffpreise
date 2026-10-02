@@ -4,14 +4,14 @@
     "name": "BMWET",
     "url": "https://www.bmwet.gv.at/Themen/Energie/kosten.html"
   },
-  "retrieved_at": "2026-09-25T07:28:25+02:00",
+  "retrieved_at": "2026-10-02T07:29:50+02:00",
   "current": {
-    "date": "2026-09-21",
+    "date": "2026-09-28",
     "prices": {
-      "diesel": 2.238,
-      "eurosuper": 1.925,
-      "super_plus": 2.161,
-      "heating_oil_bulk": 1.885,
+      "diesel": 2.259,
+      "eurosuper": 1.956,
+      "super_plus": 2.197,
+      "heating_oil_bulk": 1.859,
       "heating_oil_station": 2.011
     }
   }
